@@ -11,14 +11,7 @@
         <% end %>
       </li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-            <%= link_to image_tag(avatar_url(current_user), class: "img-circle profile-image"), edit_user_registration_path, class: "nav-link" %>
-        </li>
-        <% if (user_signed_in? && current_user.admin == true) %>
-          <li class="nav-item admin">
-            Admin
-          </li>
-        <% end %>
+
       <% else %>
         <li class="nav-item">
           <%= link_to new_user_registration_path, class: "nav-link" do %>
