@@ -1,0 +1,45 @@
+<nav class="navbar navbar-light bg-faded exciting-navbar">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+   &#9776;
+  </button>
+    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <%= link_to 'English School Rating', root_url, class: 'navbar-brand' %>
+    <ul class="nav navbar-nav">
+      <li class="nav-item active">
+        <%= link_to root_url, class: "nav-link" do%>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to image_tag(avatar_url(current_user), class: "img-circle profile-image"), edit_user_registration_path, class: "nav-link" %>
+        </li>
+        <% if (user_signed_in? && current_user.admin == true) %>
+          <li class="nav-item admin">
+            Admin
+          </li>
+        <% end %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_registration_path, class: "nav-link" do %>
+            <i class="fa fa-user-plus"></i>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fa fa-sign-out"></i>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "nav-link" do %>
+            <i class="fa fa-user"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
