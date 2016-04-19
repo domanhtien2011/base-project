@@ -19,5 +19,6 @@
 //= require turbolinks
 //= require_tree .
 
+// always require bootstrap-sprockets otherwise my flash notice won't work
 
 UnobtrusiveFlash.flashOptions['timeout'] = 3000; // milliseconds
